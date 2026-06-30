@@ -3,3 +3,4 @@ __pycache__/
 *.npy
 human+activity+recognition+using+smartphones/
 .DS_Store
+*.zip
