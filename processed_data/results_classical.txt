@@ -1,0 +1,112 @@
+Loading features ...
+  features_train : (7352, 72)
+  features_test  : (2947, 72)
+  y_train        : (7352,)  labels [1 2 3 4 5 6]
+  y_test         : (2947,)   labels [1 2 3 4 5 6]
+
+
+Training Random Forest ...
+
+============================================================
+  Random Forest (200 trees)
+============================================================
+  Training time : 0.89 seconds
+  Test accuracy : 89.45%
+
+  Classification report:
+                    precision    recall  f1-score   support
+
+           WALKING     0.8966    0.8911    0.8938       496
+  WALKING_UPSTAIRS     0.8236    0.9321    0.8745       471
+WALKING_DOWNSTAIRS     0.9008    0.7786    0.8352       420
+           SITTING     0.8860    0.8391    0.8619       491
+          STANDING     0.8615    0.9004    0.8805       532
+            LAYING     1.0000    1.0000    1.0000       537
+
+          accuracy                         0.8945      2947
+         macro avg     0.8948    0.8902    0.8910      2947
+      weighted avg     0.8963    0.8945    0.8940      2947
+
+  Confusion matrix (rows=true, cols=predicted):
+                WALK    W_UP    W_DN    SIT     STND    LAY 
+  WALK (true) |    442      32      22       0       0       0
+  W_UP (true) |     18     439      14       0       0       0
+  W_DN (true) |     33      60     327       0       0       0
+  SIT  (true) |      0       2       0     412      77       0
+  STND (true) |      0       0       0      53     479       0
+  LAY  (true) |      0       0       0       0       0     537
+
+
+Training SVM (RBF kernel) ...
+
+============================================================
+  SVM — RBF kernel (C=10)
+============================================================
+  Training time : 0.33 seconds
+  Test accuracy : 75.91%
+
+  Classification report:
+                    precision    recall  f1-score   support
+
+           WALKING     0.5888    0.7419    0.6566       496
+  WALKING_UPSTAIRS     0.6132    0.6093    0.6113       471
+WALKING_DOWNSTAIRS     0.8254    0.6190    0.7075       420
+           SITTING     0.8228    0.6904    0.7508       491
+          STANDING     0.7559    0.8383    0.7950       532
+            LAYING     1.0000    1.0000    1.0000       537
+
+          accuracy                         0.7591      2947
+         macro avg     0.7677    0.7498    0.7535      2947
+      weighted avg     0.7705    0.7591    0.7599      2947
+
+  Confusion matrix (rows=true, cols=predicted):
+                WALK    W_UP    W_DN    SIT     STND    LAY 
+  WALK (true) |    368      97      30       0       1       0
+  W_UP (true) |    159     287      25       0       0       0
+  W_DN (true) |     87      73     260       0       0       0
+  SIT  (true) |      5       4       0     339     143       0
+  STND (true) |      6       7       0      73     446       0
+  LAY  (true) |      0       0       0       0       0     537
+
+
+Training XGBoost ...
+
+============================================================
+  XGBoost (300 rounds)
+============================================================
+  Training time : 2.86 seconds
+  Test accuracy : 91.25%
+
+  Classification report:
+                    precision    recall  f1-score   support
+
+           WALKING     0.9071    0.9254    0.9162       496
+  WALKING_UPSTAIRS     0.8608    0.9321    0.8950       471
+WALKING_DOWNSTAIRS     0.9515    0.8405    0.8925       420
+           SITTING     0.9053    0.8371    0.8698       491
+          STANDING     0.8612    0.9211    0.8901       532
+            LAYING     1.0000    1.0000    1.0000       537
+
+          accuracy                         0.9125      2947
+         macro avg     0.9143    0.9093    0.9106      2947
+      weighted avg     0.9144    0.9125    0.9123      2947
+
+  Confusion matrix (rows=true, cols=predicted):
+                WALK    W_UP    W_DN    SIT     STND    LAY 
+  WALK (true) |    459      30       7       0       0       0
+  W_UP (true) |     20     439      11       1       0       0
+  W_DN (true) |     27      40     353       0       0       0
+  SIT  (true) |      0       1       0     411      79       0
+  STND (true) |      0       0       0      42     490       0
+  LAY  (true) |      0       0       0       0       0     537
+
+
+============================================================
+  Summary
+============================================================
+  Model                            Accuracy    Train time
+  ------------------------------------------------------
+  Random Forest (200 trees)          89.45%        0.89s
+  SVM — RBF kernel (C=10)            75.91%        0.33s
+  XGBoost (300 rounds)               91.25%        2.86s
+============================================================
