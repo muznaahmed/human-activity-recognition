@@ -39,13 +39,13 @@ RAW SIGNAL (128×9)  →  LSTM (64 units)            →  activity
 | Random Forest (200 trees) | 89.45% | 0.891 | 0.89 s |
 | SVM — RBF kernel (C=10) | 75.91% | 0.754 | 0.33 s |
 
-![Accuracy comparison](figures/accuracy_comparison.png)
+![Accuracy comparison](Figures/accuracy_comparison.png)
 
 XGBoost and the LSTM finish within **one accuracy point of each other**, despite the LSTM using no hand-crafted features at all — strong evidence that the raw signal contains enough information for a model to discover useful structure on its own. The gap that does exist is in *compute cost*, not accuracy: the LSTM took roughly **64× longer** to train than XGBoost.
 
-![Per-class F1 by model](figures/per_class_f1.png)
+![Per-class F1 by model](Figures/per_class_f1.png)
 
-![Confusion matrices](figures/confusion_matrices.png)
+![Confusion matrices](Figures/confusion_matrices.png)
 
 **Consistent patterns across all four models:**
 - **LAYING** is identified almost perfectly (95–100%) by every model — its gravity signature is unambiguous.
@@ -65,7 +65,7 @@ Hand-crafted features paired with a gradient-boosted classifier remain a strong,
 ├── train_classifiers.py  # Trains & evaluates Random Forest, SVM, XGBoost
 ├── train_lstm.py         # Trains & evaluates the LSTM on raw windows
 ├── processed_data/       # Saved arrays + results_classical.txt, results_lstm.txt
-└── figures/               # Result charts used in this README
+└── Figures/               # Result charts used in this README
 ```
 
 ## Tech stack
